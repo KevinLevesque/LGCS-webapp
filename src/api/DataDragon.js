@@ -5,7 +5,7 @@ export default {
     champions : [],
 
     async loadChampions(){
-        const response = await axios.get("http://ddragon.leagueoflegends.com/cdn/10.20.1/data/en_US/champion.json");
+        const response = await axios.get("https://ddragon.leagueoflegends.com/cdn/10.20.1/data/en_US/champion.json");
         this.champions = response.data.data;
     },
 
@@ -19,7 +19,7 @@ export default {
         const championKey = Object.keys(this.champions).find(key => this.champions[key].name === name);
         const champion = this.champions[championKey];
 
-        return 'http://ddragon.leagueoflegends.com/cdn/10.20.1/img/champion/' + champion.image.full;
+        return 'https://ddragon.leagueoflegends.com/cdn/10.20.1/img/champion/' + champion.image.full;
     },
 
 }
