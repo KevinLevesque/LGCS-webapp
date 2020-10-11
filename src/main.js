@@ -4,7 +4,7 @@ import Axios from 'axios';
 import router from "./router";
 import moment from 'moment'
 
-Axios.defaults.baseURL =  process.env('API_BASE_URL') || 'http://localhost:8099';
+Axios.defaults.baseURL =  process.env.API_BASE_URL || 'http://localhost:8099';
 
 Vue.config.productionTip = false
 
