@@ -26,10 +26,10 @@
                 columns: [
                     {label: '', field: 'championImage', sortable : false },
                     {label: 'Champion', field: 'champion' },
-                    {label: 'Wins', field: 'wins', type: 'number'},
-                    {label: 'Win %', field: 'winRate', type: 'percentage'},
-                    {label: 'Losses', field: 'losses', type: 'number'},
-                    {label: 'Loss % ', field: 'lossRate ', type: 'percentage'},
+                    {label: 'Victoires', field: 'wins', type: 'number'},
+                    {label: 'Victoire %', field: 'winRate', type: 'percentage'},
+                    {label: 'Défaites', field: 'losses', type: 'number'},
+                    {label: 'Défaites % ', field: 'lossRate ', type: 'percentage'},
                     {label: 'Picks', field: 'picks', type: 'number'},
                     {label: 'Pick %', field: 'pickRate', type: 'percentage'},
                     {label: 'Bans', field: 'bans', type: 'number'},
@@ -121,7 +121,7 @@
                 vertical-align: middle;
 
                 img {
-                    max-width: 75px;
+                    max-width: 50px;
                 }
 
                 text-align: center;

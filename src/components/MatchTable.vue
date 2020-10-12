@@ -1,6 +1,10 @@
 <template>
 
     <table class="match" cellspacing="0" cellpadding="0">
+        <tr>
+            <th colspan="3" class="blue">Équipe 1 <span v-if="match.winnerTeamColor == 'blue'">(Victoire)</span> </th>
+            <th colspan="3" class="red">Équipe 2 <span v-if="match.winnerTeamColor == 'red'">(Victoire)</span></th>
+        </tr>
         <tr v-for="index in teamMaxPlayers" :key="index">
             <td class="blue"><img :src="match.teams[0].participants[index-1].champion.imageUrl"/></td>
             <td class="blue">
@@ -124,7 +128,7 @@
         width: 100%;
 
         tr{
-            td {
+            td, th {
 
                 img {
                     max-width: 75px;

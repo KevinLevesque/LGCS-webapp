@@ -10,6 +10,7 @@
 
     <champions-stats-table :total-match-amount="matches.length"></champions-stats-table>
 
+    <PlayersStatsTable class="mt-1" :total-match-amount="matches.length"></PlayersStatsTable>
 
 
 
@@ -26,10 +27,11 @@
   import DataDragon from "../../api/DataDragon";
   import ChampionsStatsTable from "../ChampionsStatsTable";
   import MatchesList from "../MatchesList";
+  import PlayersStatsTable from "../PlayersStatsTable";
 
 export default {
   name: 'Index',
-  components: {MatchesList, ChampionsStatsTable},
+  components: {PlayersStatsTable, MatchesList, ChampionsStatsTable},
   data() {
     return{
       matches : [],

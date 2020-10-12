@@ -2,8 +2,14 @@
   <div id="app">
     <div class="container-wrapper">
       <div class="container">
-        <Menu></Menu>
-        <h1>League Custom Group Stats</h1>
+
+        <div class="flex">
+          <h1>League Custom Group Stats</h1>
+          <Menu></Menu>
+        </div>
+
+
+
         <router-view></router-view>
       </div>
 
@@ -30,6 +36,19 @@ export default {
 
 <style lang="scss">
 
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+
+
   .container-wrapper {
     display: flex;
     justify-content: center;
@@ -53,6 +72,10 @@ export default {
        text-decoration: underline;
        color : #0c5460;
      }
+  }
+
+  .mt-1{
+    margin-top: 1em;
   }
 
 </style>

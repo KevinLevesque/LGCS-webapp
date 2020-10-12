@@ -15,4 +15,9 @@ export default {
         return response.data;
     },
 
+    async getAllStats() {
+        const response = await axios.get('/players/stats');
+        return response.data;
+    },
+
 }
