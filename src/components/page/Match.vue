@@ -1,16 +1,11 @@
 <template>
 
     <div v-if="match">
-        <router-link :to="{name : 'index'}"> &lt; Retour à l'index</router-link>
-
-
         <div>
-            Match du {{match.date | shortDate}} à {{match.date | shortTime}}
+            <h2>Match du {{match.date | shortDate}} à {{match.date | shortTime}} (ID : {{match.id}})</h2>
         </div>
 
-
         <MatchTable :match="match" :editable="$store.state.adminMode"></MatchTable>
-
     </div>
 
 

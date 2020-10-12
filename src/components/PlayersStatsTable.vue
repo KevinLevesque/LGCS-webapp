@@ -2,6 +2,7 @@
 
     <vue-good-table style-class="champions vgt-table bordered" :columns="columns" :rows="rows"
                     :sort-options="{enabled : true, initialSortBy: {field: 'wins', type: 'desc'}}"
+                    :pagination-options="{enabled: true, mode: 'records',perPage: 10}"
                     v-if="loaded">
 
     </vue-good-table>

@@ -2,14 +2,13 @@
 
   <div>
     <h2>Liste des matchs</h2>
-
     <MatchesList></MatchesList>
 
 
     <h2>Statistiques des champions</h2>
-
     <champions-stats-table :total-match-amount="matches.length"></champions-stats-table>
 
+    <h2>Statistiques des joueurs</h2>
     <PlayersStatsTable class="mt-1" :total-match-amount="matches.length"></PlayersStatsTable>
 
 

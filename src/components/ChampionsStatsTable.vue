@@ -2,10 +2,11 @@
 
     <vue-good-table style-class="champions vgt-table bordered" :columns="columns" :rows="rows"
                     :sort-options="{enabled : true, initialSortBy: {field: 'champion', type: 'asc'}}"
-                    v-if="loaded">
+                    v-if="loaded"
+                    :pagination-options="{enabled: true, mode: 'records',perPage: 10}">
         <template slot="table-row" slot-scope="props">
             <template v-if="props.column.field == 'championImage'">
-                <img :src="props.row.imageUrl" />
+                <img :src="props.row.imageUrl"/>
             </template>
         </template>
     </vue-good-table>
@@ -24,12 +25,12 @@
         data() {
             return {
                 columns: [
-                    {label: '', field: 'championImage', sortable : false },
-                    {label: 'Champion', field: 'champion' },
+                    {label: '', field: 'championImage', sortable: false},
+                    {label: 'Champion', field: 'champion'},
                     {label: 'Victoires', field: 'wins', type: 'number'},
                     {label: 'Victoire %', field: 'winRate', type: 'percentage'},
                     {label: 'Défaites', field: 'losses', type: 'number'},
-                    {label: 'Défaites % ', field: 'lossRate ', type: 'percentage'},
+                    {label: 'Défaites %', field: 'lossRate', type: 'percentage'},
                     {label: 'Picks', field: 'picks', type: 'number'},
                     {label: 'Pick %', field: 'pickRate', type: 'percentage'},
                     {label: 'Bans', field: 'bans', type: 'number'},
@@ -45,8 +46,7 @@
             totalMatchAmount: {
                 type: Number
             }
-        }
-        ,
+        },
 
 
         methods: {
@@ -56,8 +56,7 @@
                     return 0;
 
                 return stats.wins / stats.picks;
-            }
-            ,
+            },
 
             lossRate(stats) {
                 if (stats.wins + stats.losses === 0)
@@ -68,20 +67,16 @@
 
             pickRate(stats) {
                 return stats.picks / this.totalMatchAmount;
-            }
-            ,
+            },
 
             banRate(stats) {
                 return stats.bans / this.totalMatchAmount;
-            }
-            ,
+            },
 
-        }
-        ,
+        },
 
 
-        computed: {}
-        ,
+        computed: {},
 
 
         async created() {

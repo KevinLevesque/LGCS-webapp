@@ -3,6 +3,8 @@
 
     <nav>
         <ul>
+            <li><router-link :to="{name : 'index'}">Index</router-link></li>
+            <li><router-link :to="{name : 'raw-data'}">Données brutes</router-link></li>
             <li><span class="link" @click="addMatch" v-if="$store.state.adminMode">+ Ajouter une partie</span></li>
             <li><input type="checkbox" v-if="$store.state.isAdmin" v-model="$store.state.adminMode"><span class="link" @click="login">Accès administrateur</span></li>
         </ul>

@@ -2,7 +2,8 @@
 
     <div class="matches">
         <vue-good-table :columns="columns" :rows="rows"
-                        :sort-options="{enabled: true, initialSortBy: {field: 'date', type: 'desc'}}">
+                        :sort-options="{enabled: true, initialSortBy: {field: 'date', type: 'desc'}}"
+                        :pagination-options="{enabled: true, mode: 'records',perPage: 5}">
             <template slot="table-row" slot-scope="props">
                 <template v-if="props.column.field === 'date'">
                     <router-link :to="{name : 'match', params : { matchId : props.row.matchId}}">{{props.row.date |
@@ -12,7 +13,7 @@
                 </template>
                 <template v-else-if="props.column.field === 'team1'">
                     <div class="players">
-                        <div class="player" v-for="player in props.row.team1" :key="player.username">
+                        <div class="player" v-for="(player, idx) in props.row.team1" :key="idx">
                             <div>{{player.username}}</div>
                             <div><img :src="player.championImage"/></div>
                         </div>
@@ -21,7 +22,7 @@
                 </template>
                 <template v-else-if="props.column.field === 'team2'">
                     <div class="players">
-                        <div class="player" v-for="player in props.row.team2" :key="player.username">
+                        <div class="player" v-for="(player, idx) in props.row.team2" :key="idx">
                             <div>{{player.username}}</div>
                             <div><img :src="player.championImage"/></div>
                         </div>
