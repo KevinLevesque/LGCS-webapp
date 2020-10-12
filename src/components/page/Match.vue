@@ -9,7 +9,7 @@
         </div>
 
 
-        <MatchTable :match="match" :editable="true"></MatchTable>
+        <MatchTable :match="match" :editable="$store.state.adminMode"></MatchTable>
 
     </div>
 
