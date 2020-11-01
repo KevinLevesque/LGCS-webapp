@@ -4,6 +4,12 @@
                     :sort-options="{enabled : true, initialSortBy: {field: 'wins', type: 'desc'}}"
                     :pagination-options="{enabled: true, mode: 'records',perPage: 10}"
                     v-if="loaded">
+        <template slot="table-row" slot-scope="props">
+            <template v-if="props.column.field == 'username'">
+                <router-link :to="{name : 'player', params : {username : props.row.username}}">{{props.row.username}}
+                </router-link>
+            </template>
+        </template>
 
     </vue-good-table>
 
@@ -31,11 +37,7 @@
         },
 
 
-        props: {
-            totalMatchAmount: {
-                type: Number
-            }
-        }
+        props: {}
         ,
 
 

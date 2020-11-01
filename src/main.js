@@ -35,6 +35,10 @@ Vue.filter('twoDecimals', function (value) {
   return value.toFixed(2);
 });
 
+Vue.filter('percent', function (value) {
+  return (value * 100).toFixed(2) + '%';
+});
+
 new Vue({
   router,
   store,

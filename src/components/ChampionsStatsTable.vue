@@ -5,8 +5,11 @@
                     v-if="loaded"
                     :pagination-options="{enabled: true, mode: 'records',perPage: 10}">
         <template slot="table-row" slot-scope="props">
-            <template v-if="props.column.field == 'championImage'">
-                <img :src="props.row.imageUrl"/>
+            <template v-if="props.column.field === 'championImage'">
+                <img :src="props.row.imageUrl" />
+            </template>
+            <template v-else-if="props.column.field === 'champion'">
+                <router-link :to="{name : 'champion', params : { name : props.row.champion }}">{{props.row.champion}}</router-link>
             </template>
         </template>
     </vue-good-table>
@@ -18,6 +21,7 @@
 
     import Champions from "../api/Champions";
     import DataDragon from "../api/DataDragon";
+    import ChampionStatsHelper from "../Helpers/ChampionStatsHelper";
 
     export default {
         name: 'ChampionsStatsTable',
@@ -43,40 +47,21 @@
 
 
         props: {
-            totalMatchAmount: {
-                type: Number
-            }
         },
 
 
         methods: {
 
-            winRate(stats) {
-                if (stats.wins + stats.losses === 0)
-                    return 0;
 
-                return stats.wins / stats.picks;
-            },
-
-            lossRate(stats) {
-                if (stats.wins + stats.losses === 0)
-                    return 0;
-
-                return stats.losses / stats.picks;
-            },
-
-            pickRate(stats) {
-                return stats.picks / this.totalMatchAmount;
-            },
-
-            banRate(stats) {
-                return stats.bans / this.totalMatchAmount;
-            },
 
         },
 
 
-        computed: {},
+        computed: {
+            totalMatches() {
+                return this.$store.state.matchesAmount;
+            }
+        },
 
 
         async created() {
@@ -89,13 +74,13 @@
                     imageUrl: url,
                     champion: stats.champion.name,
                     wins: stats.wins,
-                    winRate: this.winRate(stats),
+                    winRate: ChampionStatsHelper.winRate(stats),
                     losses: stats.losses,
-                    lossRate: this.lossRate(stats),
+                    lossRate: ChampionStatsHelper.lossRate(stats),
                     picks: stats.picks,
-                    pickRate: this.pickRate(stats),
+                    pickRate: ChampionStatsHelper.pickRate(stats),
                     bans: stats.bans,
-                    banRate: this.banRate(stats)
+                    banRate: ChampionStatsHelper.banRate(stats)
                 });
             }
 

@@ -14,6 +14,11 @@ export default {
         return response.data;
     },
 
+    async getMatchesAmount() {
+        const response = await axios.get('/matches/count');
+        return response.data.count;
+    },
+
     async setParticipantPlayer(matchId, participantId, playerUsername){
       await axios.post("/matches/" + matchId + "/participants/" + participantId + "/setPlayer", {
           username : playerUsername

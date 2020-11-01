@@ -15,8 +15,18 @@ export default {
         return response.data;
     },
 
+    async getMatches(username) {
+        const response = await axios.get('/players/' + username + '/matches');
+        return response.data;
+    },
+
     async getAllStats() {
         const response = await axios.get('/players/stats');
+        return response.data;
+    },
+
+    async getStats(username) {
+        const response = await axios.get('/players/' + username + '/stats');
         return response.data;
     },
 

@@ -2,11 +2,14 @@
 
     <table class="match" cellspacing="0" cellpadding="0">
         <tr>
-            <th colspan="3" class="blue">Équipe 1 <span v-if="match.winnerTeamColor == 'blue'">(Victoire)</span> </th>
-            <th colspan="3" class="red">Équipe 2 <span v-if="match.winnerTeamColor == 'red'">(Victoire)</span></th>
+            <th colspan="3" class="blue">Équipe 1 <span v-if="match.winnerTeamColor == 'blue'">Victoire</span> </th>
+            <th colspan="3" class="red">Équipe 2</th>
         </tr>
         <tr v-for="index in teamMaxPlayers" :key="index">
-            <td class="blue"><img :src="match.teams[0].participants[index-1].champion.imageUrl"/></td>
+            <td class="blue">
+                <router-link :to="{name : 'champion', params : { name : match.teams[0].participants[index-1].champion.name }}">                <img :src="match.teams[0].participants[index-1].champion.imageUrl"/></router-link>
+
+            </td>
             <td class="blue">
                 <select @change="setPlayer($event,0, index-1)" v-model="match.teams[0].participants[index-1].player" v-if="editable">
                     <option :value="match.teams[0].participants[index-1].player" >{{match.teams[0].participants[index-1].player ? match.teams[0].participants[index-1].player.username : ""}}</option>

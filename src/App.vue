@@ -3,7 +3,7 @@
     <div class="container-wrapper">
       <div class="container">
 
-        <div class="flex">
+        <div class="flex header">
           <h1>League Custom Group Stats</h1>
           <Menu></Menu>
         </div>
@@ -22,6 +22,7 @@
 
 import Menu from "./components/Menu";
 import DataDragon from "./api/DataDragon";
+import Matches from "./api/Matches";
 export default {
   name: 'App',
   components: {Menu},
@@ -29,6 +30,7 @@ export default {
   async created() {
 
     this.$store.commit('setChampionsData', await DataDragon.getChampionsData())
+    this.$store.commit('setMatchesAmount', await Matches.getMatchesAmount())
 
   }
 }
@@ -47,6 +49,11 @@ export default {
     margin: 0;
   }
 
+
+  .header {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 2em;
+  }
 
 
   .container-wrapper {

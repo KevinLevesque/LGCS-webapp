@@ -8,24 +8,29 @@ export default new Vuex.Store({
 
     state: {
 
-        isAdmin : Cookies.get('token') !== undefined,
-        adminMode : false,
+        isAdmin: Cookies.get('token') !== undefined,
+        adminMode: false,
 
-        championsData : []
+        championsData: [],
+        matchesAmount: 0
 
     },
 
     mutations: {
-        setAdminMode(state, payload){
+        setAdminMode(state, payload) {
             state.adminMode = payload
         },
-        setIsAdmin(state, payload){
+        setIsAdmin(state, payload) {
             state.isAdmin = payload
             state.adminMode = payload
         },
 
-        setChampionsData(state, payload){
-            state.championsData =payload
+        setChampionsData(state, payload) {
+            state.championsData = payload
+        },
+
+        setMatchesAmount(state, payload) {
+            state.matchesAmount = payload
         }
     }
 
